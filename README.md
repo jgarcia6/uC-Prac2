@@ -1,4 +1,2 @@
-# uC-Prac1
-C review for embedded systems
-
-Please complete the bitwise exercises
+# uC-Prac2
+Blink hello world
