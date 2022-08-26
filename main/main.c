@@ -17,6 +17,19 @@
 #define LED_GPIO GPIO_NUM_2
 #define BTN_GPIO GPIO_NUM_4
 
+#define DOT     10
+#define DASH    (DOT * 3)   
+#define PAUSE   (DOT)
+#define BREAK   (DOT * 5)
+#define END     0
+
+uint8_t mE[] = {DOT, END};
+uint8_t mJ[] = {DOT, DASH, DASH, DASH, END};
+uint8_t mS[] = {DOT, DOT, DOT, END};
+uint8_t mU[] = {DOT, DOT, DASH, END};
+uint8_t mEND[] = {END};
+uint8_t *name[] = {mJ, mE, mS, mU, mS, mEND}; 
+
 void delayMs(uint16_t ms)
 {
     vTaskDelay(ms / portTICK_PERIOD_MS);
@@ -41,6 +54,15 @@ static void configure_led(void)
     gpio_pullup_en(BTN_GPIO);
 }
 
+void sendMorse(uint8_t *data[])
+{
+
+    //while (data)
+    {
+        //sendLetter();
+    }
+}
+
 void app_main(void)
 {
     printf("Hello world!\n");
@@ -60,6 +82,10 @@ void app_main(void)
             (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
     printf("Minimum free heap size: %d bytes\n", esp_get_minimum_free_heap_size());
+
+    printf("Jesus");
+    sendMorse(name);
+
 
     /* GPIO example */
     configure_led();

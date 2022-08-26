@@ -54,3 +54,4 @@ dkms.conf
 # ESP-IDF
 build/*
 sdkconfig
+.vscode/settings.json
